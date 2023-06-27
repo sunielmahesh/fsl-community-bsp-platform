@@ -15,7 +15,7 @@ Download the BSP source:
 $: PATH=${PATH}:~/bin
 $: mkdir fsl-community-bsp
 $: cd fsl-community-bsp
-$: repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b kirkstone
+$: repo init -u https://github.com/sunielmahesh/fsl-community-bsp-platform -b kirkstone
 $: repo sync
 
 At the end of the commands you have every metadata you need to start work with.
@@ -25,6 +25,11 @@ To start a simple image build:
 [source,console]
 $: source ./setup-environment build
 $: bitbake core-image-minimal
+
+To start a full multimedia image build:
+[source,console]
+$: MACHINE=imx8mp-icore-ctouch2-of10 DISTRO=fslc-wayland source setup-environment build
+$: bitbake fsl-image-multimedia-full
 
 You can use any directory to host your build.
 
@@ -39,29 +44,3 @@ Mailing list::
 
 Source code::
     https://github.com/Freescale/fsl-community-bsp-platform
-
-When creating patches, please use something like:
-
-[source,console]
-$: git format-patch -s --subject-prefix='fsl-community-bsp-platform][PATCH' origin
-
-When sending patches, please use something like:
-
-[source,console]
-$: git send-email --to meta-freescale@yoctoproject.org <generated patch>
-
-== Using Development and Testing Branches
-
-Replace the `repo init` command above with one of the following:
-
-master:: For developers
-+
-[source,console]
-$: repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b master
-
-master-next:: For intrepid developers and testers
-+
-Patches are typically merged into master-next and then are merged into master after a testing and comment period. It's possible that master-next has something you want or need. But it's also possible that using master-next breaks something that was working before. Use with caution.
-
-[source,console]
-$: repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b master-next
