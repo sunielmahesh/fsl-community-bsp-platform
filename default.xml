@@ -23,6 +23,7 @@
   <project remote="freescale" name="Documentation" path="sources/Documentation"/>
   
   <project remote="cust" name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
+  <project remote="cust" name="meta-swupdate-boards" path="sources/meta-swupdate-boards"/>
 
   <project remote="swupdate" name="meta-swupdate" path="sources/meta-swupdate"/>
 
